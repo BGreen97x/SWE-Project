@@ -77,9 +77,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SWE-Project-Lib\SWE-Project-Lib.csproj">
+    <ProjectReference Include="..\SWE-Project-Lib\SWEProjectLib.csproj">
       <Project>{dd12b01d-2db6-4cc4-a7c5-cefcf354f01a}</Project>
-      <Name>SWE-Project-Lib</Name>
+      <Name>SWEProjectLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
