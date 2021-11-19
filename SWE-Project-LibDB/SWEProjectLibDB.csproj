@@ -53,11 +53,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Projekt.cs">
+      <DependentUpon>SWEProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SWEProjectModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SWEProjectModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SWEProjectModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SWEProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SWEProjectModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SWEProjectModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>SWEProjectModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +86,22 @@
     <None Include="SWEProjectModel.edmx.diagram">
       <DependentUpon>SWEProjectModel.edmx</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SWEProjectModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SWEProjectModel.Context.cs</LastGenOutput>
+      <DependentUpon>SWEProjectModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SWEProjectModel.edmx.sql" />
+    <Content Include="SWEProjectModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SWEProjectModel.cs</LastGenOutput>
+      <DependentUpon>SWEProjectModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -4,11 +4,86 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="SWEProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="SWEProjectModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="SWEProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SWEProjectModelStoreContainer">
+    <EntitySet Name="Projekts" EntityType="SWEProjectModel.Store.Projekts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="SWEProjectModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Mitarbeiter" EntityType="SWEProjectModel.Store.Mitarbeiter" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Mitarbeiter_Projekt" Association="SWEProjectModel.Store.FK_Mitarbeiter_Projekt">
+      <End Role="Projekt" EntitySet="Projekts" />
+      <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mitarbeiter_User" Association="SWEProjectModel.Store.FK_Mitarbeiter_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+    </AssociationSet>
+    <AssociationSet Name="Autor" Association="SWEProjectModel.Store.Autor">
+      <End Role="Projekt" EntitySet="Projekts" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Projekts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Beschreibung" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Autor_UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Vorname" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mitarbeiter">
+    <Key>
+      <PropertyRef Name="ProjektMitarbeiter_Id" />
+      <PropertyRef Name="Mitarbeiter_UserId" />
+    </Key>
+    <Property Name="ProjektMitarbeiter_Id" Type="int" Nullable="false" />
+    <Property Name="Mitarbeiter_UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Autor">
+    <End Role="Projekt" Type="SWEProjectModel.Store.Projekts" Multiplicity="*" />
+    <End Role="User" Type="SWEProjectModel.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Projekt">
+        <PropertyRef Name="Autor_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mitarbeiter_Projekt">
+    <End Role="Projekt" Type="SWEProjectModel.Store.Projekts" Multiplicity="1" />
+    <End Role="Mitarbeiter" Type="SWEProjectModel.Store.Mitarbeiter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projekt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mitarbeiter">
+        <PropertyRef Name="ProjektMitarbeiter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mitarbeiter_User">
+    <End Role="Mitarbeiter" Type="SWEProjectModel.Store.Mitarbeiter" Multiplicity="*" />
+    <End Role="User" Type="SWEProjectModel.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Mitarbeiter">
+        <PropertyRef Name="Mitarbeiter_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SWEProjectModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -56,13 +131,44 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="SWEProjectModel" />
-        <Alias Key="Target" Value="SWEProjectModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="SWEProjectModelContainer" StorageEntityContainer="SWEProjectModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SWEProjectModelStoreContainer" CdmEntityContainer="SWEProjectModelContainer">
+    <EntitySetMapping Name="Projekts">
+      <EntityTypeMapping TypeName="IsTypeOf(SWEProjectModel.Projekt)">
+        <MappingFragment StoreEntitySet="Projekts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(SWEProjectModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Mitarbeiter" TypeName="SWEProjectModel.Mitarbeiter" StoreEntitySet="Mitarbeiter">
+      <EndProperty Name="Projekt">
+        <ScalarProperty Name="Id" ColumnName="ProjektMitarbeiter_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserId" ColumnName="Mitarbeiter_UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Autor" TypeName="SWEProjectModel.Autor" StoreEntitySet="Projekts">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserId" ColumnName="Autor_UserId" />
+      </EndProperty>
+      <EndProperty Name="Projekt">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -76,6 +182,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWEProjectConsole", "SWE-Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWEProjectLibDB", "SWE-Project-LibDB\SWEProjectLibDB.csproj", "{032BA3CD-2AB1-45E5-8DF1-7E50BF8A7E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWEProjectWeb", "SWEProjectWeb\SWEProjectWeb.csproj", "{E142AB83-14BC-45C8-83C1-EE216F682392}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{032BA3CD-2AB1-45E5-8DF1-7E50BF8A7E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{032BA3CD-2AB1-45E5-8DF1-7E50BF8A7E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{032BA3CD-2AB1-45E5-8DF1-7E50BF8A7E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E142AB83-14BC-45C8-83C1-EE216F682392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E142AB83-14BC-45C8-83C1-EE216F682392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E142AB83-14BC-45C8-83C1-EE216F682392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E142AB83-14BC-45C8-83C1-EE216F682392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
