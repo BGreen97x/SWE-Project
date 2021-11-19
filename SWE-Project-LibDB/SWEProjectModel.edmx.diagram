@@ -5,8 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="20621d4d75f14566b6e564df562ae820" Name="Diagram1" >
-        <EntityTypeShape EntityType="SWEProjectModel.Projekt" Width="1.5" PointX="7.25" PointY="1" />
-        <EntityTypeShape EntityType="SWEProjectModel.User" Width="1.5" PointX="7.25" PointY="4.5" />
+        <EntityTypeShape EntityType="SWEProjectModel.Projekt" Width="1.5" PointX="4" PointY="1" />
+        <EntityTypeShape EntityType="SWEProjectModel.User" Width="1.5" PointX="8" PointY="1" />
+        <AssociationConnector Association="SWEProjectModel.Mitarbeiter" />
+        <AssociationConnector Association="SWEProjectModel.Autor" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
