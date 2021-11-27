@@ -19,6 +19,7 @@ namespace SWE_Project_LibDB
         {
             this.ProjektMitarbeiter = new HashSet<Projekt>();
             this.ProjektAutor = new HashSet<Projekt>();
+            this.Kommentare = new HashSet<Kommentar>();
         }
     
         public int UserId { get; set; }
@@ -29,5 +30,7 @@ namespace SWE_Project_LibDB
         public virtual ICollection<Projekt> ProjektMitarbeiter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Projekt> ProjektAutor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kommentar> Kommentare { get; set; }
     }
 }

@@ -53,10 +53,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bewertung.cs">
+      <DependentUpon>SWEProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kommentar.cs">
+      <DependentUpon>SWEProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Projekt.cs">
       <DependentUpon>SWEProjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skill.cs">
+      <DependentUpon>SWEProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SWEProjectModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

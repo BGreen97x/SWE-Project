@@ -9,6 +9,13 @@
         <EntityTypeShape EntityType="SWEProjectModel.User" Width="1.5" PointX="4" PointY="4.375" />
         <AssociationConnector Association="SWEProjectModel.Mitarbeiter" ></AssociationConnector>
         <AssociationConnector Association="SWEProjectModel.Autor" />
+        <EntityTypeShape EntityType="SWEProjectModel.Kommentar" Width="1.5" PointX="8.375" PointY="4.375" />
+        <AssociationConnector Association="SWEProjectModel.ProjektKommentar" />
+        <AssociationConnector Association="SWEProjectModel.UserKommentar" />
+        <EntityTypeShape EntityType="SWEProjectModel.Bewertung" Width="1.5" PointX="8.375" PointY="0.875" />
+        <AssociationConnector Association="SWEProjectModel.ProjektBewertung" />
+        <EntityTypeShape EntityType="SWEProjectModel.Skill" Width="1.5" PointX="8.375" PointY="2.625" />
+        <AssociationConnector Association="SWEProjectModel.ProjektSkill" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
