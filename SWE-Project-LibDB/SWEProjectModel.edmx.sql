@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/27/2021 12:07:51
+-- Date Created: 11/30/2021 16:00:22
 -- Generated from EDMX file: C:\Users\franz\source\repos\SWE-Project\SWE-Project-LibDB\SWEProjectModel.edmx
 -- --------------------------------------------------
 
@@ -17,28 +17,61 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_Autor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Projekts] DROP CONSTRAINT [FK_Autor];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Mitarbeiter_Projekt]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Mitarbeiter] DROP CONSTRAINT [FK_Mitarbeiter_Projekt];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Mitarbeiter_User]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Mitarbeiter] DROP CONSTRAINT [FK_Mitarbeiter_User];
 GO
+IF OBJECT_ID(N'[dbo].[FK_Autor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Projekts] DROP CONSTRAINT [FK_Autor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjektKommentar]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Kommentars] DROP CONSTRAINT [FK_ProjektKommentar];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserKommentar]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Kommentars] DROP CONSTRAINT [FK_UserKommentar];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjektBewertung_Projekt]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjektBewertung] DROP CONSTRAINT [FK_ProjektBewertung_Projekt];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjektBewertung_Bewertung]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjektBewertung] DROP CONSTRAINT [FK_ProjektBewertung_Bewertung];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjektSkill_Projekt]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjektSkill] DROP CONSTRAINT [FK_ProjektSkill_Projekt];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjektSkill_Skill]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjektSkill] DROP CONSTRAINT [FK_ProjektSkill_Skill];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Mitarbeiter]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Mitarbeiter];
-GO
 IF OBJECT_ID(N'[dbo].[Projekts]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Projekts];
 GO
 IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];
+GO
+IF OBJECT_ID(N'[dbo].[Kommentars]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Kommentars];
+GO
+IF OBJECT_ID(N'[dbo].[Bewertungen]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Bewertungen];
+GO
+IF OBJECT_ID(N'[dbo].[Skills]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Skills];
+GO
+IF OBJECT_ID(N'[dbo].[Mitarbeiter]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Mitarbeiter];
+GO
+IF OBJECT_ID(N'[dbo].[ProjektBewertung]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjektBewertung];
+GO
+IF OBJECT_ID(N'[dbo].[ProjektSkill]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjektSkill];
 GO
 
 -- --------------------------------------------------

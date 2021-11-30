@@ -1,14 +1,28 @@
 ﻿@model IEnumerable<SWE_Project_LibDB.User>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "";
 }
 
-<h2>Index</h2>
+<h2>Login</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<p> Benutzername </p>
+<input type="text" name="spind" value="" />
+
+<p> Passwort </p>
+<input type="text" name="spind" value="" />
+
+<!--Login Buttons -->
+
+<p> <button type="button">Login!</button> </p>
+
+<p>@Html.ActionLink("Create New", "Create") </p>
+
+<p> <button type="button">*</button> </p>
+
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -20,20 +34,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vorname)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
-        </td>
-    </tr>
-}
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vorname)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            </td>
+
+        </tr>
+    }
 
 </table>

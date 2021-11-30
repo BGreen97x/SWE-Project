@@ -50,9 +50,11 @@ namespace SWEProjectWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                //projekt.Autor = currentUser
                 db.Projekts.Add(projekt);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+               
             }
 
             return View(projekt);

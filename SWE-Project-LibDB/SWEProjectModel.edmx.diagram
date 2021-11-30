@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="20621d4d75f14566b6e564df562ae820" Name="Diagram1" >
-        <EntityTypeShape EntityType="SWEProjectModel.Projekt" Width="1.5" PointX="4" PointY="1" />
+        <EntityTypeShape EntityType="SWEProjectModel.Projekt" Width="1.5" PointX="4" PointY="1.375" />
         <EntityTypeShape EntityType="SWEProjectModel.User" Width="1.5" PointX="4" PointY="4.375" />
         <AssociationConnector Association="SWEProjectModel.Mitarbeiter" ></AssociationConnector>
         <AssociationConnector Association="SWEProjectModel.Autor" />
-        <EntityTypeShape EntityType="SWEProjectModel.Kommentar" Width="1.5" PointX="8.375" PointY="4.375" />
+        <EntityTypeShape EntityType="SWEProjectModel.Kommentar" Width="1.5" PointX="8.375" PointY="4.75" />
         <AssociationConnector Association="SWEProjectModel.ProjektKommentar" />
         <AssociationConnector Association="SWEProjectModel.UserKommentar" />
         <EntityTypeShape EntityType="SWEProjectModel.Bewertung" Width="1.5" PointX="8.375" PointY="0.875" />
