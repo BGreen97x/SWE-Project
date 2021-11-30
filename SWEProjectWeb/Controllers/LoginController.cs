@@ -10,7 +10,7 @@ using SWE_Project_LibDB;
 
 namespace SWEProjectWeb.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private SWEProjectModelContainer db = new SWEProjectModelContainer();
 
@@ -32,7 +32,6 @@ namespace SWEProjectWeb.Controllers
             {
                 return HttpNotFound();
             }
-            //BaseController.setUserId(id.Value);
             setUserId(id.Value);
             return RedirectToAction("Index");
         }

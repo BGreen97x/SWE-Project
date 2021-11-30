@@ -10,7 +10,7 @@ using SWE_Project_LibDB;
 
 namespace SWEProjectWeb.Controllers
 {
-    public class ProjektsController : Controller
+    public class ProjektsController : BaseController
     {
         private SWEProjectModelContainer db = new SWEProjectModelContainer();
 
