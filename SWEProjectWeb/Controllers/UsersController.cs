@@ -8,9 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using SWE_Project_LibDB;
 
-namespace SWEProjectWeb
+namespace SWEProjectWeb.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private SWEProjectModelContainer db = new SWEProjectModelContainer();
 

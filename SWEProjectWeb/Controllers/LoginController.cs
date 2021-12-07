@@ -21,7 +21,7 @@ namespace SWEProjectWeb.Controllers
         }
 
         // GET: Login/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Select(int? id)
         {
             if (id == null)
             {
