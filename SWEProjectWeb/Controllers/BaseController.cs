@@ -12,7 +12,7 @@ namespace SWEProjectWeb.Controllers
 {
     public class BaseController : Controller
     {
-        private SWEProjectModelContainer db = new SWEProjectModelContainer();
+        public SWEProjectModelContainer db = new SWEProjectModelContainer();
 
         private static String UserIdKey = "UserId";
         public User setUser()

@@ -12,7 +12,7 @@ namespace SWEProjectWeb.Controllers
 {
     public class ProjektsController : BaseController
     {
-        private SWEProjectModelContainer db = new SWEProjectModelContainer();
+        //private SWEProjectModelContainer db = new SWEProjectModelContainer();
 
         // GET: Projekts
         public ActionResult Index()
@@ -48,9 +48,9 @@ namespace SWEProjectWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Titel,Beschreibung")] Projekt projekt)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && hasUser())
             {
-                //projekt.Autor = currentUser
+                projekt.Autor = LoggedInUser;
                 db.Projekts.Add(projekt);
                 db.SaveChanges();
                 return RedirectToAction("Index");
