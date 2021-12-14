@@ -129,8 +129,10 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BewertungsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KommentarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProjektsController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +195,16 @@
     <Content Include="Views\Bewertungs\Details.cshtml" />
     <Content Include="Views\Bewertungs\Edit.cshtml" />
     <Content Include="Views\Bewertungs\Index.cshtml" />
+    <Content Include="Views\Kommentar\Create.cshtml" />
+    <Content Include="Views\Kommentar\Delete.cshtml" />
+    <Content Include="Views\Kommentar\Details.cshtml" />
+    <Content Include="Views\Kommentar\Edit.cshtml" />
+    <Content Include="Views\Kommentar\Index.cshtml" />
+    <Content Include="Views\Skill\Create.cshtml" />
+    <Content Include="Views\Skill\Delete.cshtml" />
+    <Content Include="Views\Skill\Details.cshtml" />
+    <Content Include="Views\Skill\Edit.cshtml" />
+    <Content Include="Views\Skill\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
