@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<SWE_Project_LibDB.User>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Projectify - Login";
 }
 
-<h2>Index</h2>
-<!-- <p> @Html.ActionLink("Create New", "Create")</p> -->
+<h2>Login</h2>
+
 
 <table class="table">
     <tr>
@@ -28,11 +28,13 @@
                 @Html.DisplayFor(modelItem => item.Vorname)
             </td>
             <td>
-                <!-- @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) -->
+                <!--@Html.ActionLink("Home", "Index", "Home")-->
                 @Html.ActionLink("Select", "Select", new { id = item.UserId })
                 <!-- @Html.ActionLink("Delete", "Delete", new { id = item.UserId }) -->
             </td>
         </tr>
     }
-
 </table>
+
+<h3> New Account </h3>
+<p> @Html.ActionLink("Create New Account", "Index","Users/Create")</p>
